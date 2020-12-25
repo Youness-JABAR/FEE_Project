@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:textAlignment="center"
+    tools:context=".Inscription_choice">
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="180dp"
+        android:layout_height="175dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <Button
+        android:id="@+id/btn_etd"
+        android:layout_width="369dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Vous êtes un étudiant"
+        android:textAlignment="textStart"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#AF47B2"
+        android:textDirection="firstStrong"
+        android:textSize="30sp"
+        app:backgroundTint="#FBFBFB"
+        app:cornerRadius="40dp"
+        app:iconTint="#FBFBFB"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
+
+    <Button
+        android:id="@+id/btn_rct"
+        android:layout_width="369dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="sans-serif-medium"
+        android:includeFontPadding="true"
+        android:text="Vous êtes un recruteur"
+        android:textAlignment="textStart"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#AF47B2"
+        android:textDirection="firstStrong"
+        android:textSize="30sp"
+        app:backgroundTint="#FFFFFF"
+        app:cornerRadius="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_etd" />
+</androidx.constraintlayout.widget.ConstraintLayout>
