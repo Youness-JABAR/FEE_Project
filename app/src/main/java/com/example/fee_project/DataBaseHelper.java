@@ -48,8 +48,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         long insert=db.insert(STUDENT,null,cv);
         return insert != -1;
     }
-    public boolean checkemail(String email){
-        return true;
+    public boolean checkEmail(String email,String user){
+        SQLiteDatabase db=this.getReadableDatabase();
+        String query ="SELECT * FROM "+user+" WHERE "+COLUMN_EMAIL+ " = '"+ email +"'" ;
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.getCount()>0)
+            return false;
+        else return true;
     }
 
     public boolean addEntreprise(Entreprise entreprise) {
@@ -89,4 +94,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             return -1;
     }
 
+    public boolean emailPassword(String email, String pwd, String USER) {
+        SQLiteDatabase db=this.getReadableDatabase();
+        String query ="SELECT * FROM "+USER+" WHERE "+COLUMN_EMAIL+ " = '"+ email +"' AND "+COLUMN_PASSWORD+ " = '"+ pwd +"'" ;
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.getCount()>0)
+            return true;
+        else return false;
+    }
 }

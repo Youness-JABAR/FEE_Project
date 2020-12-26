@@ -54,53 +54,74 @@ public class Register_Recruiter_1 extends AppCompatActivity {
                 Entreprise entreprise;
                 RecruiterModel recruiterModel;
                 String imageName;
+                String nom=insre_nom.getText().toString();
+                String prenom=insre_prenom.getText().toString();
+                String email=insre_email.getText().toString();
+                String pwd1=insre_password1.getText().toString();
+                String pwd2=insre_password2.getText().toString();
+                String entrepriseName=insre_entreprise.getText().toString();
+                String description=insre_description.getText().toString();
 
-                if ( insre_password1.getText().toString().equals(insre_password2.getText().toString()) ){
-                    try {
-                        imageName=insre_entreprise.getText().toString()+insre_nom.getText().toString()+insre_prenom.getText().toString();
-                        uploadImageToFirebase(ImageUri,imageName);
-
-                        entreprise=new Entreprise(-1,insre_entreprise.getText().toString(),insre_description.getText().toString(),imageName);
-                        Toast.makeText(Register_Recruiter_1.this, entreprise.toString(), Toast.LENGTH_SHORT).show();
+                if (email.equals("")||nom.equals("")||prenom.equals("")||pwd1.equals("")||entrepriseName.equals("")||description.equals("")){
+                    Toast.makeText(Register_Recruiter_1.this, "champs sont vides", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    if ( pwd1.equals(pwd2) ){
                         DataBaseHelper db = new DataBaseHelper(Register_Recruiter_1.this);
-                        //function you should add in dbhelper
-                        if (db.addEntreprise(entreprise)){
-                            int entrepriseId =db.getEntrepriseId(imageName);
-                            if(entrepriseId!=-1){
-                                Toast.makeText(Register_Recruiter_1.this, "entreprise créer avec succès", Toast.LENGTH_SHORT).show();
-                                //add the recruiter****************************
+                        if(db.checkEmail(email,"RECRUITER")){
+                            try {
+                                imageName=entrepriseName+nom+prenom;
+                                uploadImageToFirebase(ImageUri,imageName);
 
-                                try {
-                                    recruiterModel=new RecruiterModel(-1,insre_prenom.getText().toString(),insre_nom.getText().toString(),insre_email.getText().toString(),insre_password1.getText().toString(), entrepriseId);
-                                    Toast.makeText(Register_Recruiter_1.this, recruiterModel.toString(), Toast.LENGTH_SHORT).show();
-                                    if (db.addRecruiter(recruiterModel)){
-                                        Toast.makeText(Register_Recruiter_1.this, "compte créer avec succès", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(Register_Recruiter_1.this,Login.class);
-                                        startActivity(intent);}
+                                entreprise=new Entreprise(-1,entrepriseName,description,imageName);
+                                Toast.makeText(Register_Recruiter_1.this, entreprise.toString(), Toast.LENGTH_SHORT).show();
+                                //function you should add in dbhelper
+                                if (db.addEntreprise(entreprise)){
+                                    int entrepriseId =db.getEntrepriseId(imageName);
+                                    if(entrepriseId!=-1){
+                                        Toast.makeText(Register_Recruiter_1.this, "entreprise créer avec succès", Toast.LENGTH_SHORT).show();
+                                        //add the recruiter****************************
 
+                                        try {
+                                            recruiterModel=new RecruiterModel(-1,prenom,nom,email,pwd1, entrepriseId);
+                                            Toast.makeText(Register_Recruiter_1.this, recruiterModel.toString(), Toast.LENGTH_SHORT).show();
+
+                                            if (db.addRecruiter(recruiterModel)){
+                                                Toast.makeText(Register_Recruiter_1.this, "compte créer avec succès", Toast.LENGTH_SHORT).show();
+                                                Intent intent = new Intent(Register_Recruiter_1.this,Login.class);
+                                                startActivity(intent);
+                                            }
+
+                                            else
+                                                Toast.makeText(Register_Recruiter_1.this, "Erreur lors de la creation de compte", Toast.LENGTH_SHORT).show();
+                                        }
+                                        catch (Exception e){
+                                            Toast.makeText(Register_Recruiter_1.this, "Erreur lors de la creation de compte", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
                                     else
-                                        Toast.makeText(Register_Recruiter_1.this, "Erreur lors de la creation de compte", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Register_Recruiter_1.this, "Erreur lors de la creation de l'entreprise", Toast.LENGTH_SHORT).show();
+
                                 }
-                                catch (Exception e){
-                                    Toast.makeText(Register_Recruiter_1.this, "Erreur lors de la creation de compte", Toast.LENGTH_SHORT).show();
-                                }
+
+                                else
+                                    Toast.makeText(Register_Recruiter_1.this, "Erreur lors de la creation de l'entreprise", Toast.LENGTH_SHORT).show();
                             }
-                            else
-                                Toast.makeText(Register_Recruiter_1.this, "Erreur lors de la creation de l'entreprise", Toast.LENGTH_SHORT).show();
+                            catch (Exception e){
+                                Toast.makeText(Register_Recruiter_1.this, "Erreur lors de la creation de compte", Toast.LENGTH_SHORT).show();
+                            }
 
                         }
-
                         else
-                            Toast.makeText(Register_Recruiter_1.this, "Erreur lors de la creation de l'entreprise", Toast.LENGTH_SHORT).show();
-                    }
-                    catch (Exception e){
-                        Toast.makeText(Register_Recruiter_1.this, "Erreur lors de la creation de compte", Toast.LENGTH_SHORT).show();
-                    }
+                            Toast.makeText(Register_Recruiter_1.this, "l'email existe déjà", Toast.LENGTH_SHORT).show();
 
+
+                    }
+                    else {
+                        Toast.makeText(Register_Recruiter_1.this, "Mots de passe non identiques!", Toast.LENGTH_SHORT).show();
+                    }
                 }
-                else {
-                    Toast.makeText(Register_Recruiter_1.this, "Mots de passe non identiques!", Toast.LENGTH_SHORT).show();
-                }
+
             }
         });
 

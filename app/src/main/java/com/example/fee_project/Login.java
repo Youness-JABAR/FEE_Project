@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
     Button btn_sinscrire,btn_login;
@@ -34,6 +35,18 @@ public class Login extends AppCompatActivity {
     btn_login.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            DataBaseHelper db = new DataBaseHelper(Login.this);
+
+            String email=e_email.getText().toString();
+            String pwd=p_password.getText().toString();
+            if(db.emailPassword(email,pwd,"STUDENT")){
+                Toast.makeText(Login.this, "successfully login as student", Toast.LENGTH_SHORT).show();
+            }
+            else if (db.emailPassword(email,pwd,"RECRUITER")){
+                Toast.makeText(Login.this, "successfully login as recruiter", Toast.LENGTH_SHORT).show();
+            }
+            else
+                Toast.makeText(Login.this, "mot de passe ou email incorrect", Toast.LENGTH_SHORT).show();
 
         }
     });
