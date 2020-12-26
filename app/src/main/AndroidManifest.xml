@@ -9,6 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FEE_PROJECT">
+        <activity
+            android:name=".RecruiterOffers"
+            android:label="@string/title_activity_recruiter_offers"
+            android:theme="@style/Theme.FEE_PROJECT.NoActionBar"></activity>
         <activity android:name=".Student_accueil">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".offre_stage" />
+        <activity android:name=".Recruiter_accueil" />
         <activity android:name=".Register_Recruiter_1" />
         <activity android:name=".Register_Student" />
         <activity android:name=".Inscription_choice" />
