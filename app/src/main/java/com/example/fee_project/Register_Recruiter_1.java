@@ -73,9 +73,10 @@ public class Register_Recruiter_1 extends AppCompatActivity {
                                 try {
                                     recruiterModel=new RecruiterModel(-1,insre_prenom.getText().toString(),insre_nom.getText().toString(),insre_email.getText().toString(),insre_password1.getText().toString(), entrepriseId);
                                     Toast.makeText(Register_Recruiter_1.this, recruiterModel.toString(), Toast.LENGTH_SHORT).show();
-
-                                    if (db.addRecruiter(recruiterModel))
+                                    if (db.addRecruiter(recruiterModel)){
                                         Toast.makeText(Register_Recruiter_1.this, "compte créer avec succès", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(Register_Recruiter_1.this,Login.class);
+                                        startActivity(intent);}
 
                                     else
                                         Toast.makeText(Register_Recruiter_1.this, "Erreur lors de la creation de compte", Toast.LENGTH_SHORT).show();
