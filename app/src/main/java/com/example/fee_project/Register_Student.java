@@ -31,7 +31,6 @@ public class Register_Student extends AppCompatActivity {
                         studentModel=new StudentModel(-1,inset_prenom.getText().toString(),inset_nom.getText().toString(),inset_email.getText().toString(),inset_password1.getText().toString());
                         Toast.makeText(Register_Student.this, studentModel.toString(), Toast.LENGTH_SHORT).show();
                         DataBaseHelper db = new DataBaseHelper(Register_Student.this);
-                        boolean success ;
                         if (db.addStudent(studentModel))
                             Toast.makeText(Register_Student.this, "compte créer avec succès", Toast.LENGTH_SHORT).show();
 
