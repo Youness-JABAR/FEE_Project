@@ -9,20 +9,17 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import java.util.zip.Inflater;
-
-public class Recruiter_accueil extends AppCompatActivity {
+public class Student_accueil extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recruiter_accueil);
+        setContentView(R.layout.activity_student_accueil);
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.accueil_rct_menu,menu);
+        inflater.inflate(R.menu.accueil_etd_menu,menu);
         return true;
     }
 
@@ -30,14 +27,12 @@ public class Recruiter_accueil extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item1:
-                Intent intent=new Intent(Recruiter_accueil.this,RecruiterOffers.class);
-                startActivity(intent);
                 Toast.makeText(this, "Item 1 ", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.item2:
-                Intent i=new Intent(Recruiter_accueil.this,Login.class);
+                Intent i=new Intent(Student_accueil.this,Login.class);
                 startActivity(i);
-                Toast.makeText(this, "Item 2 selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "deconnexion", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
