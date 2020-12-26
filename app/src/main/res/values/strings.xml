@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">FEE_PROJECT</string>
+    <string-array name="numbers">
+        <item>OBSERVATION</item>
+        <item>PFA</item>
+        <item>PFE</item>
+
+    </string-array>
 </resources>
