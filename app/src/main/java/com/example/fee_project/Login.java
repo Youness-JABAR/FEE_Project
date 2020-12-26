@@ -41,9 +41,13 @@ public class Login extends AppCompatActivity {
             String pwd=p_password.getText().toString();
             if(db.emailPassword(email,pwd,"STUDENT")){
                 Toast.makeText(Login.this, "successfully login as student", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Login.this,Student_accueil.class);
+                startActivity(intent);
             }
             else if (db.emailPassword(email,pwd,"RECRUITER")){
                 Toast.makeText(Login.this, "successfully login as recruiter", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Login.this,Recruiter_accueil.class);
+                startActivity(intent);
             }
             else
                 Toast.makeText(Login.this, "mot de passe ou email incorrect", Toast.LENGTH_SHORT).show();

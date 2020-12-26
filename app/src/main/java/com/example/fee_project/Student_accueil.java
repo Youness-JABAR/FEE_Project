@@ -8,20 +8,17 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import java.util.zip.Inflater;
-
-public class Recruiter_accueil extends AppCompatActivity {
+public class Student_accueil extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recruiter_accueil);
+        setContentView(R.layout.activity_student_accueil);
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.accueil_rct_menu,menu);
+        inflater.inflate(R.menu.accueil_etd_menu,menu);
         return true;
     }
 
