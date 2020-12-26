@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FEE_PROJECT">
+        <activity android:name=".offre_stage"></activity>
         <activity android:name=".Register_Recruiter_1" />
         <activity android:name=".Register_Student" />
         <activity android:name=".Inscription_choice" />
