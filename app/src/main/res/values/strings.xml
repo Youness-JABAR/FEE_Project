@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">FEE_PROJECT</string>
-    <string-array name="numbers">
+    <string-array name="types">
         <item>OBSERVATION</item>
         <item>PFA</item>
         <item>PFE</item>

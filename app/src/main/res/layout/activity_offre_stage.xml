@@ -97,7 +97,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="9"
-        android:checkedButton="@+id/offre_btnoui"
+        android:checkedButton="@+id/offre_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11">
@@ -126,6 +126,7 @@
         android:layout_weight="1"
         android:text="non"
         android:textSize="18sp"
+        android:checked="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/roleRadioGroup" />
 
@@ -178,7 +179,7 @@
         app:layout_constraintTop_toBottomOf="@+id/spinner1" />
 
     <EditText
-        android:id="@+id/offre_période"
+        android:id="@+id/offre_periode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -199,7 +200,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.812"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/offre_période" />
+        app:layout_constraintTop_toBottomOf="@+id/offre_periode" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
