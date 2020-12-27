@@ -5,11 +5,11 @@ public class Offre {
     private int id;
     private String titre;
     private String type;/// type de l'offre
-    private Boolean remuneration;
+    private String remuneration;
     private String description;
     private String periode;
 
-    public Offre(int id, String titre, String type, Boolean remuneration, String description, String periode) {
+    public Offre(int id, String titre, String type, String remuneration, String description, String periode) {
         this.id = id;
         this.titre = titre;
         this.type = type;
@@ -42,11 +42,11 @@ public class Offre {
         this.type = type;
     }
 
-    public Boolean getRemuneration() {
+    public String getRemuneration() {
         return remuneration;
     }
 
-    public void setRemuneration(Boolean remuneration) {
+    public void setRemuneration(String remuneration) {
         this.remuneration = remuneration;
     }
 

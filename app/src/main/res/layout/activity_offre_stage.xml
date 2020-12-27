@@ -102,7 +102,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11">
 
-    </RadioGroup>
+
 
     <RadioButton
         android:id="@+id/offre_btnoui"
@@ -112,6 +112,8 @@
         android:layout_weight="1"
         android:text="oui"
         android:textSize="18sp"
+        android:onClick="checkButton"
+
         app:layout_constraintEnd_toStartOf="@+id/offre_btnnon"
         app:layout_constraintHorizontal_bias="0.462"
         app:layout_constraintStart_toStartOf="parent"
@@ -125,10 +127,12 @@
         android:layout_marginEnd="120dp"
         android:layout_weight="1"
         android:text="non"
-        android:textSize="18sp"
         android:checked="true"
+        android:textSize="18sp"
+        android:onClick="checkButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/roleRadioGroup" />
+    </RadioGroup>
 
 
     <ImageView
@@ -148,23 +152,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:entries="@array/numbers"
+        android:entries="@array/types"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.197"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Type de stage:"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.148"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/offre_btnoui" />
+
 
     <TextView
         android:id="@+id/textView2"

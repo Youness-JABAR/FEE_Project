@@ -40,25 +40,26 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL(createTableStudent);
         String createTableRecruiter = "CREATE TABLE " + RECRUITER + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_NAME + " TEXT," + COLUMN_FAMILY_NAME + " TEXT , " + COLUMN_EMAIL + " TEXT , " + COLUMN_PASSWORD + " TEXT ," + COLUMN_ENTREPRISE_ID + " INEGER NOT NULL,FOREIGN KEY ( " + COLUMN_ENTREPRISE_ID + " ) REFERENCES ENTREPRISE (ID))";
         db.execSQL(createTableRecruiter);
-        String createTableEntreprise = "CREATE TABLE " + ENTREPRISE + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_NAME + " TEXT," + COLUMN_DESCRIPTION + " TEXT , " + COLUMN_IMAGE + " STRING)";
+        String createTableEntreprise = "CREATE TABLE " + ENTREPRISE + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_NAME + " TEXT," + COLUMN_DESCRIPTION + " TEXT , " + COLUMN_IMAGE + " TEXT)";
         db.execSQL(createTableEntreprise);
+        String createTableOffre = "CREATE TABLE " + OFFRE + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_TITRE + " TEXT, " + COLUMN_TYPE + " TEXT , " + COLUMN_REMUNERATION + " TEXT , " + COLUMN_DESCRIPTION_OFFRE + " TEXT , " + COLUMN_PERIODE + " TEXT)";
+        db.execSQL(createTableOffre);
 
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        String createTableOffre = "CREATE TABLE " + OFFRE + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_TITRE + " TEXT, " + COLUMN_DESCRIPTION_OFFRE+ " TEXT , " + COLUMN_REMUNERATION+ " INTEGER , " + COLUMN_TYPE + " TEXT ," + COLUMN_PERIODE + " TEXT)";
-        db.execSQL(createTableOffre);
+
     }
 
     public boolean addOffre(Offre offre){
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(COLUMN_TYPE,offre.getType());
-        cv.put(COLUMN_DESCRIPTION_OFFRE,offre.getDescription());
-        cv.put(COLUMN_REMUNERATION,offre.getRemuneration());
         cv.put(COLUMN_TITRE,offre.getTitre());
+        cv.put(COLUMN_TYPE,offre.getType());
+        cv.put(COLUMN_REMUNERATION,offre.getRemuneration());
+        cv.put(COLUMN_DESCRIPTION_OFFRE,offre.getDescription());
         cv.put(COLUMN_PERIODE,offre.getPeriode());
         long insert=db.insert(OFFRE,null,cv);
         return insert != -1;
