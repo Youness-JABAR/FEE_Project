@@ -2,7 +2,9 @@ package com.example.fee_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -60,7 +62,13 @@ public class offre_stage extends AppCompatActivity implements AdapterView.OnItem
             }else{
                 DataBaseHelper db = new DataBaseHelper(offre_stage.this);
                         try {
-                            offre=new Offre(-1,offre_titre,valeur_spinner,valeur_remuneration,offre_description,offre_periode);
+                            //com.example.login is the preference file where we will store info
+                            //Context.MODE_PRIVATE can be accessed only within the app
+                            SharedPreferences sharedpreferences = getSharedPreferences("com.example.login", Context.MODE_PRIVATE);
+                            // The value will be default as empty 0
+                            int id=sharedpreferences.getInt("idUser",0);
+
+                            offre=new Offre(-1,offre_titre,valeur_spinner,valeur_remuneration,offre_description,offre_periode, id);
                             Toast.makeText(offre_stage.this, offre.toString(), Toast.LENGTH_SHORT).show();
                             if (db.addOffre(offre)) {
                                 Toast.makeText(offre_stage.this, "offre créé avec succès", Toast.LENGTH_SHORT).show();

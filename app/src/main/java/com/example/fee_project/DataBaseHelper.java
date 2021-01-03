@@ -28,6 +28,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_DESCRIPTION_OFFRE = "DESCRIPTION";
     public static final String COLUMN_TYPE = "TYPE";
     public static final String COLUMN_PERIODE = "PERIODE";
+    public static final String COLUMN_RECRUITER_ID = "RECRUITER_ID";
 
 
     public DataBaseHelper(@Nullable Context context) {
@@ -38,11 +39,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String createTableStudent = "CREATE TABLE " + STUDENT + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_NAME + " TEXT ," + COLUMN_FAMILY_NAME + " TEXT , " + COLUMN_EMAIL + " TEXT , " + COLUMN_PASSWORD + " TEXT)";
         db.execSQL(createTableStudent);
-        String createTableRecruiter = "CREATE TABLE " + RECRUITER + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_NAME + " TEXT," + COLUMN_FAMILY_NAME + " TEXT , " + COLUMN_EMAIL + " TEXT , " + COLUMN_PASSWORD + " TEXT ," + COLUMN_ENTREPRISE_ID + " INEGER NOT NULL,FOREIGN KEY ( " + COLUMN_ENTREPRISE_ID + " ) REFERENCES ENTREPRISE (ID))";
+        String createTableRecruiter = "CREATE TABLE " + RECRUITER + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_NAME + " TEXT," + COLUMN_FAMILY_NAME + " TEXT , " + COLUMN_EMAIL + " TEXT , " + COLUMN_PASSWORD + " TEXT ," + COLUMN_ENTREPRISE_ID + " INTEGER NOT NULL,FOREIGN KEY ( " + COLUMN_ENTREPRISE_ID + " ) REFERENCES ENTREPRISE (ID))";
         db.execSQL(createTableRecruiter);
         String createTableEntreprise = "CREATE TABLE " + ENTREPRISE + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_NAME + " TEXT," + COLUMN_DESCRIPTION + " TEXT , " + COLUMN_IMAGE + " TEXT)";
         db.execSQL(createTableEntreprise);
-        String createTableOffre = "CREATE TABLE " + OFFRE + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_TITRE + " TEXT, " + COLUMN_TYPE + " TEXT , " + COLUMN_REMUNERATION + " TEXT , " + COLUMN_DESCRIPTION_OFFRE + " TEXT , " + COLUMN_PERIODE + " TEXT)";
+        String createTableOffre = "CREATE TABLE " + OFFRE + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_TITRE + " TEXT, " + COLUMN_TYPE + " TEXT , " + COLUMN_REMUNERATION + " TEXT , " + COLUMN_DESCRIPTION_OFFRE + " TEXT , " + COLUMN_PERIODE + " TEXT ," + COLUMN_RECRUITER_ID + " INTEGER NOT NULL , FOREIGN KEY ( " + COLUMN_RECRUITER_ID + " ) REFERENCES RECRUITER (ID))";
         db.execSQL(createTableOffre);
 
 
@@ -50,6 +51,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + OFFRE);
 
     }
 
@@ -61,6 +63,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_REMUNERATION,offre.getRemuneration());
         cv.put(COLUMN_DESCRIPTION_OFFRE,offre.getDescription());
         cv.put(COLUMN_PERIODE,offre.getPeriode());
+        cv.put(COLUMN_RECRUITER_ID,offre.getRecruiterId());
         long insert=db.insert(OFFRE,null,cv);
         return insert != -1;
     }
@@ -128,10 +131,23 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             return true;
         else return false;
     }
+    public int getUserId( String email, String pwd, String USER) {
+        SQLiteDatabase db=this.getReadableDatabase();
+        String query ="SELECT " +COLUMN_ID+ " FROM "+USER+" WHERE "+COLUMN_EMAIL+ " = '"+ email +"' AND "+COLUMN_PASSWORD+ " = '"+ pwd +"'" ;
+        Cursor cursor = db.rawQuery(query, null);
+        if(cursor.moveToFirst()){
+            int id=cursor.getInt(0);
+            cursor.close();
+            db.close();
+            return id;
+        }
+        else
+            return -1;
 
+    }
 
-    Cursor readAllData(){
-        String query = "SELECT * FROM "+ OFFRE;
+    Cursor readAllDataRec(int recId){
+        String query = "SELECT * FROM "+ OFFRE+" WHERE "+COLUMN_RECRUITER_ID+ " = '"+ recId + "'";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = null ;
         if(db != null){
@@ -149,18 +165,5 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         }
         return cursor;
     }
-    public int getUserId( String email, String pwd, String USER) {
-        SQLiteDatabase db=this.getReadableDatabase();
-        String query ="SELECT " +COLUMN_ID+ " FROM "+USER+" WHERE "+COLUMN_EMAIL+ " = '"+ email +"' AND "+COLUMN_PASSWORD+ " = '"+ pwd +"'" ;
-        Cursor cursor = db.rawQuery(query, null);
-        if(cursor.moveToFirst()){
-            int id=cursor.getInt(0);
-            cursor.close();
-            db.close();
-            return id;
-        }
-        else
-            return -1;
 
-    }
 }

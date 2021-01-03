@@ -1,6 +1,8 @@
 package com.example.fee_project;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.database.Cursor;
 
@@ -50,7 +52,12 @@ public class RecruiterOffers extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(RecruiterOffers.this));
     }
     void displayData(){
-        Cursor cursor = db.readAllData();
+        //com.example.login is the preference file where we will store info
+        //Context.MODE_PRIVATE can be accessed only within the app
+        SharedPreferences sharedpreferences = getSharedPreferences("com.example.login", Context.MODE_PRIVATE);
+        int id=sharedpreferences.getInt("idUser",0);
+
+        Cursor cursor = db.readAllDataRec(id);
         if (cursor.getCount() == 0){
             Toast.makeText(this,"No data",Toast.LENGTH_SHORT).show();
         }else {

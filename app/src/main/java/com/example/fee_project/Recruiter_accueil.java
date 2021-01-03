@@ -2,7 +2,9 @@ package com.example.fee_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -32,12 +34,19 @@ public class Recruiter_accueil extends AppCompatActivity {
             case R.id.item1:
                 Intent i2=new Intent(Recruiter_accueil.this,RecruiterOffers.class);
                 startActivity(i2);
-                Toast.makeText(this, "Item 1 selected", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.item2:
+                //com.example.login is the preference file where we will store info
+                //Context.MODE_PRIVATE can be accessed only within the app
+                SharedPreferences sharedpreferences = getSharedPreferences("com.example.login", Context.MODE_PRIVATE);
+                //editor that will help us to store, retrieve and save info
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.remove("idUser");
+                editor.commit();
+
                 Intent i=new Intent(Recruiter_accueil.this,Login.class);
                 startActivity(i);
-                Toast.makeText(this, "Item 2 selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Deconnexion", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

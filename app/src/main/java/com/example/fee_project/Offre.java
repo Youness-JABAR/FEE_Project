@@ -8,14 +8,24 @@ public class Offre {
     private String remuneration;
     private String description;
     private String periode;
+    private int recruiterId;
 
-    public Offre(int id, String titre, String type, String remuneration, String description, String periode) {
+    public Offre(int id, String titre, String type, String remuneration, String description, String periode, int recruiterId) {
         this.id = id;
         this.titre = titre;
         this.type = type;
         this.remuneration = remuneration;
         this.description = description;
         this.periode = periode;
+        this.recruiterId = recruiterId;
+    }
+
+    public int getRecruiterId() {
+        return recruiterId;
+    }
+
+    public void setRecruiterId(int recruiterId) {
+        this.recruiterId = recruiterId;
     }
 
     public int getId() {
@@ -72,9 +82,10 @@ public class Offre {
                 "id=" + id +
                 ", titre='" + titre + '\'' +
                 ", type='" + type + '\'' +
-                ", remuneration=" + remuneration +
+                ", remuneration='" + remuneration + '\'' +
                 ", description='" + description + '\'' +
                 ", periode='" + periode + '\'' +
+                ", recruiterId=" + recruiterId +
                 '}';
     }
 }
