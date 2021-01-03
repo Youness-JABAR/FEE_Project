@@ -128,4 +128,24 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             return true;
         else return false;
     }
+
+    Cursor readAllData(){
+        String query = "SELECT * FROM "+ OFFRE;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = null ;
+        if(db != null){
+            cursor = db.rawQuery(query,null);
+        }
+        return cursor;
+    }
+
+    Cursor readAllDataEtd(){
+        String query = "SELECT * FROM "+ OFFRE;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = null ;
+        if(db != null){
+            cursor = db.rawQuery(query,null);
+        }
+        return cursor;
+    }
 }

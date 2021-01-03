@@ -9,10 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FEE_PROJECT">
+        <activity android:name=".StudentOffers">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".RecruiterOffers"
             android:label="@string/title_activity_recruiter_offers"
-            android:theme="@style/Theme.FEE_PROJECT.NoActionBar"></activity>
+            android:theme="@style/Theme.FEE_PROJECT.NoActionBar" />
         <activity android:name=".Student_accueil">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

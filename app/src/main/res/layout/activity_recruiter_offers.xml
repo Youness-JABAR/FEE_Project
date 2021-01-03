@@ -20,7 +20,11 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_recruiter_offers" />
+    <include
+        android:id="@+id/rv_offre"
+        layout="@layout/content_recruiter_offers"
+        android:layout_width="match_parent"
+        android:layout_height="709dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

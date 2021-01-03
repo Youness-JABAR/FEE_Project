@@ -30,9 +30,9 @@ public class Recruiter_accueil extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item1:
-                Intent intent=new Intent(Recruiter_accueil.this,RecruiterOffers.class);
-                startActivity(intent);
-                Toast.makeText(this, "Item 1 ", Toast.LENGTH_SHORT).show();
+                Intent i2=new Intent(Recruiter_accueil.this,RecruiterOffers.class);
+                startActivity(i2);
+                Toast.makeText(this, "Item 1 selected", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.item2:
                 Intent i=new Intent(Recruiter_accueil.this,Login.class);

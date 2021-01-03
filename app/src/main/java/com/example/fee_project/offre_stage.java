@@ -2,6 +2,7 @@ package com.example.fee_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,7 +18,7 @@ public class offre_stage extends AppCompatActivity implements AdapterView.OnItem
     EditText titre,description,periode;
     RadioButton btn_oui,btn_non;
     RadioButton radioButton;
-     RadioGroup type;
+    RadioGroup type;
     Button btn_ajout;
     Spinner spinner;
     @Override
@@ -56,18 +57,16 @@ public class offre_stage extends AppCompatActivity implements AdapterView.OnItem
 
             if (offre_titre.equals("")||offre_periode.equals("")||offre_description.equals("")){
                 Toast.makeText(offre_stage.this, "champs sont vides", Toast.LENGTH_SHORT).show();
-            }
-
-            else{
-
-                    DataBaseHelper db = new DataBaseHelper(offre_stage.this);
+            }else{
+                DataBaseHelper db = new DataBaseHelper(offre_stage.this);
                         try {
                             offre=new Offre(-1,offre_titre,valeur_spinner,valeur_remuneration,offre_description,offre_periode);
                             Toast.makeText(offre_stage.this, offre.toString(), Toast.LENGTH_SHORT).show();
-                            if (db.addOffre(offre))
-                                Toast.makeText(offre_stage.this, "offre créer avec succès", Toast.LENGTH_SHORT).show();
-
-                            else
+                            if (db.addOffre(offre)) {
+                                Toast.makeText(offre_stage.this, "offre créé avec succès", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(offre_stage.this, RecruiterOffers.class);
+                                startActivity(intent);
+                            }else
                                 Toast.makeText(offre_stage.this, "Erreur lors de la creation de l'offre", Toast.LENGTH_SHORT).show();
                         }
                         catch (Exception e){

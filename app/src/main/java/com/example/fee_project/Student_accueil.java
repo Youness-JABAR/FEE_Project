@@ -27,13 +27,13 @@ public class Student_accueil extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item1:
+                Intent i1=new Intent(Student_accueil.this,StudentOffers.class);
+                startActivity(i1);
                 Toast.makeText(this, "Item 1 ", Toast.LENGTH_SHORT).show();
-                return true;
             case R.id.item2:
                 Intent i=new Intent(Student_accueil.this,Login.class);
                 startActivity(i);
-                Toast.makeText(this, "deconnexion", Toast.LENGTH_SHORT).show();
-                return true;
+                Toast.makeText(this, "Déconnexion", Toast.LENGTH_SHORT).show();
             default:
                 return super.onOptionsItemSelected(item);
         }
