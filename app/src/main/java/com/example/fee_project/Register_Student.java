@@ -2,6 +2,7 @@ package com.example.fee_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -41,8 +42,11 @@ public class Register_Student extends AppCompatActivity {
                             try {
                                 studentModel=new StudentModel(-1,prenom,nom,email,pwd1);
                                 Toast.makeText(Register_Student.this, studentModel.toString(), Toast.LENGTH_SHORT).show();
-                                if (db.addStudent(studentModel))
+                                if (db.addStudent(studentModel)){
                                     Toast.makeText(Register_Student.this, "compte créer avec succès", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(Register_Student.this,Login.class);
+                                    startActivity(intent);
+                                }
 
                                 else
                                     Toast.makeText(Register_Student.this, "Erreur lors de la creation de compte", Toast.LENGTH_SHORT).show();

@@ -129,6 +129,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         else return false;
     }
 
+
     Cursor readAllData(){
         String query = "SELECT * FROM "+ OFFRE;
         SQLiteDatabase db = this.getReadableDatabase();
@@ -139,13 +140,27 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    Cursor readAllDataEtd(){
-        String query = "SELECT * FROM "+ OFFRE;
+    Cursor readAllDataEtd() {
+        String query = "SELECT * FROM " + OFFRE;
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = null ;
-        if(db != null){
-            cursor = db.rawQuery(query,null);
+        Cursor cursor = null;
+        if (db != null) {
+            cursor = db.rawQuery(query, null);
         }
         return cursor;
+    }
+    public int getUserId( String email, String pwd, String USER) {
+        SQLiteDatabase db=this.getReadableDatabase();
+        String query ="SELECT " +COLUMN_ID+ " FROM "+USER+" WHERE "+COLUMN_EMAIL+ " = '"+ email +"' AND "+COLUMN_PASSWORD+ " = '"+ pwd +"'" ;
+        Cursor cursor = db.rawQuery(query, null);
+        if(cursor.moveToFirst()){
+            int id=cursor.getInt(0);
+            cursor.close();
+            db.close();
+            return id;
+        }
+        else
+            return -1;
+
     }
 }

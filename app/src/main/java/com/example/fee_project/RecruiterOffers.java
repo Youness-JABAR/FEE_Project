@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+
 public class RecruiterOffers extends AppCompatActivity {
 
     RecyclerView recyclerView;
