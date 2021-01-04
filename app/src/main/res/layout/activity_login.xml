@@ -8,6 +8,19 @@
     android:background="@color/black"
     tools:context=".Login">
 
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Se connecter"
+        app:cornerRadius="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/p_password" />
+
     <EditText
         android:id="@+id/e_email"
         android:layout_width="310dp"
@@ -34,18 +47,6 @@
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="140dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="16dp"
-        android:background="#AF47B2"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="Se connecter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/p_password" />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -106,6 +107,7 @@
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-smallcaps"
         android:text="S'inscrire"
+        app:cornerRadius="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_rct_prenom" />

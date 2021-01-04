@@ -1,5 +1,6 @@
 package com.example.fee_project;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,7 +14,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -67,4 +71,7 @@ public class RecruiterOffers extends AppCompatActivity {
             }
         }
     }
+
+        Button btn_delete = findViewById(R.id.btn_delete);
+        btn_delete.setOnItemClickListener()
 }
