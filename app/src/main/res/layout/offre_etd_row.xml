@@ -2,24 +2,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="#ECE6D6">
 
             <Button
                 android:id="@+id/btn_postuler"
-                android:layout_width="127dp"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
                 android:layout_marginTop="8dp"
                 android:text="Postuler"
+                android:textSize="8sp"
+                app:backgroundTint="#E60A0A"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.939"
@@ -29,12 +32,14 @@
 
             <TextView
                 android:id="@+id/tv_titre_etdrow"
-                android:layout_width="152dp"
-                android:layout_height="42dp"
-                android:text="TextView"
-                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:text="Titre"
+                android:textColor="#000000"
+                android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.211"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,8 +47,8 @@
                 android:id="@+id/tv_desc_etdrow"
                 android:layout_width="389dp"
                 android:layout_height="52dp"
-                android:layout_marginTop="8dp"
                 android:text="TextView"
+                android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -51,13 +56,14 @@
 
             <TextView
                 android:id="@+id/tv_periode"
-                android:layout_width="58dp"
-                android:layout_height="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="8dp"
-                android:background="#9385AC"
+                android:background="#000000"
                 android:text="Periode"
                 android:textColor="#FAFAFA"
+                android:textSize="8sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btn_postuler"
                 app:layout_constraintTop_toBottomOf="@+id/tv_desc_etdrow"
@@ -65,13 +71,14 @@
 
             <TextView
                 android:id="@+id/tv_type"
-                android:layout_width="58dp"
-                android:layout_height="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="11dp"
-                android:background="#EA0B57"
+                android:background="#090909"
                 android:text="Type"
                 android:textColor="#FFFFFF"
+                android:textSize="8sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/tv_periode"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -84,13 +91,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:background="#601919"
+                android:background="#000000"
                 android:text="Remuneration"
                 android:textColor="#FAF8F8"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/tv_type"
+                app:layout_constraintHorizontal_bias="0.886"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_desc_etdrow" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_desc_etdrow"
+                app:layout_constraintVertical_bias="0.307" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
