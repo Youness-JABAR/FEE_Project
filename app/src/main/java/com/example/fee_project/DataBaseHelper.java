@@ -6,6 +6,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -31,9 +32,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_PERIODE = "PERIODE";
     public static final String COLUMN_RECRUITER_ID = "RECRUITER_ID";
 
+    private Context context;
 
-    public DataBaseHelper(@Nullable Context context) {
+
+     DataBaseHelper(@Nullable Context context)
+    {
         super(context, "fee_project.db", null,1);
+        this.context=context;
     }
 
     @Override
@@ -167,4 +172,35 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-}
+    void updateData(String row_id,String titre,String type,String remuneration,String description,String periode){
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_TITRE,titre);
+
+        cv.put(COLUMN_TYPE,type);
+        if(remuneration!=null)
+        cv.put(COLUMN_REMUNERATION,remuneration);
+        cv.put(COLUMN_DESCRIPTION_OFFRE,description);
+        cv.put(COLUMN_PERIODE,periode);
+
+        //long result = db.update(OFFRE, cv,  " ID=?", new String[]{row_id});
+
+      // long result=db.update(OFFRE, cv, COLUMN_ID + "='" + Integer.parseInt(row_id)+"'", null);
+        //
+        //
+        long result=db.update(OFFRE, cv,  "ID=" + row_id , null);
+        //long result=db.execSQL("UPDATE "+OFFRE+" SET   "+ COLUMN_TITRE +"'"+s+"' "+ "WHERE salary = "+"'"+s1+"'");
+        if (result == -1) {
+            Toast.makeText(context, "pas modifie", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(context, "bravoooo"+row_id, Toast.LENGTH_SHORT).show();
+        }
+
+
+        }
+
+
+    }
+
+
