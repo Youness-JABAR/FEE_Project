@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/mainLayout">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -13,32 +14,17 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="424dp"
+        android:layout_height="152dp">
 
         <Button
             android:id="@+id/btn_candidats"
             android:layout_width="wrap_content"
             android:layout_height="29dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
             android:text="Voir candidats"
             android:textSize="8sp"
             app:backgroundTint="#E91E63"
-            app:cornerRadius="25dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btn_modifier"
-            app:layout_constraintTop_toBottomOf="@+id/tv_description"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <Button
-            android:id="@+id/btn_modifier"
-            android:layout_width="78dp"
-            android:layout_height="29dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="Modifier"
-            android:textSize="8sp"
             app:cornerRadius="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btn_delete"
@@ -89,5 +75,46 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_description"
             app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/tv_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="id"
+            app:layout_constraintEnd_toStartOf="@+id/btn_candidats"
+            app:layout_constraintHorizontal_bias="0.14"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description" />
+
+        <TextView
+            android:id="@+id/tv_typeoff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:text="Type"
+            app:layout_constraintStart_toEndOf="@+id/tv_titre"
+            app:layout_constraintTop_toTopOf="@+id/tv_titre" />
+
+        <TextView
+            android:id="@+id/tv_remunerationoff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="remuneration"
+            app:layout_constraintEnd_toStartOf="@+id/btn_candidats"
+            app:layout_constraintStart_toEndOf="@+id/tv_id"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description" />
+
+        <TextView
+            android:id="@+id/tv_periodeoff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toStartOf="@+id/btn_delete"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/btn_candidats"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

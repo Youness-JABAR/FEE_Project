@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FEE_PROJECT">
+        <activity android:name=".UpdateOffre"></activity>
         <activity android:name=".StudentOffers">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
