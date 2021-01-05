@@ -71,7 +71,4 @@ public class RecruiterOffers extends AppCompatActivity {
             }
         }
     }
-
-        Button btn_delete = findViewById(R.id.btn_delete);
-        btn_delete.setOnItemClickListener()
 }

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class StudentOffers extends AppCompatActivity {
     RecyclerView recycleViewEtd;
     DataBaseHelper db;
-    ArrayList<String> titre,type,remuneration,description,periode;
+    ArrayList<String> titre,type,remuneration,description,periode,id;
     OffreEtdAdapter offreEtdAdapter;
 
 
@@ -31,9 +31,10 @@ public class StudentOffers extends AppCompatActivity {
         remuneration = new ArrayList<>();
         description = new ArrayList<>();
         periode = new ArrayList<>();
+        id = new ArrayList<>();
 
         displayData();
-        offreEtdAdapter = new OffreEtdAdapter(StudentOffers.this,titre,type,remuneration,description,periode);
+        offreEtdAdapter = new OffreEtdAdapter(StudentOffers.this,titre,type,remuneration,description,periode,id);
         recycleViewEtd.setAdapter(offreEtdAdapter);
         recycleViewEtd.setLayoutManager(new LinearLayoutManager(StudentOffers.this));
     }
@@ -45,11 +46,14 @@ public class StudentOffers extends AppCompatActivity {
         }else {
             while (cursor.moveToNext()){
 
+                id.add(cursor.getString(0));
+                Toast.makeText(this, id.get(0), Toast.LENGTH_SHORT).show();
                 titre.add(cursor.getString(1));
                 type.add(cursor.getString(2));
                 remuneration.add(cursor.getString(3));
                 description.add(cursor.getString(4));
                 periode.add(cursor.getString(5));
+
             }
         }
     }

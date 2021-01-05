@@ -1,10 +1,13 @@
 package com.example.fee_project;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,15 +18,19 @@ public class OffreEtdAdapter extends RecyclerView.Adapter<OffreEtdAdapter.MyView
 
 
     private Context context;
-    private ArrayList titre,type,remuneration,description,periode;
-    OffreEtdAdapter(Context context, ArrayList titre,ArrayList type,ArrayList remuneration,ArrayList description,ArrayList periode){
+    private ArrayList titre,type,remuneration,description,periode,id;
+
+    public OffreEtdAdapter(Context context, ArrayList titre, ArrayList type, ArrayList remuneration, ArrayList description, ArrayList periode, ArrayList id) {
         this.context = context;
         this.titre = titre;
         this.type = type;
         this.remuneration = remuneration;
         this.description = description;
         this.periode = periode;
+        this.id = id;
+        System.out.println(id.get(0));
     }
+
     @NonNull
     @Override
     public OffreEtdAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -39,6 +46,15 @@ public class OffreEtdAdapter extends RecyclerView.Adapter<OffreEtdAdapter.MyView
         holder.remuneration.setText(String.valueOf(remuneration.get(position)));
         holder.description.setText(String.valueOf(description.get(position)));
         holder.periode.setText(String.valueOf(periode.get(position)));
+        holder.id.setText(id.get(position).toString());
+        holder.etdLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context,DescriptionOffers.class);
+                intent.putExtra("idOffer", id.get(position).toString());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -46,7 +62,8 @@ public class OffreEtdAdapter extends RecyclerView.Adapter<OffreEtdAdapter.MyView
         return periode.size();
     }
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView titre,type,remuneration,description,periode;
+        TextView titre,type,remuneration,description,periode,id;
+        LinearLayout etdLayout;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             titre = itemView.findViewById(R.id.tv_titre_etdrow);
@@ -54,6 +71,8 @@ public class OffreEtdAdapter extends RecyclerView.Adapter<OffreEtdAdapter.MyView
             remuneration = itemView.findViewById(R.id.tv_remuneration);
             description = itemView.findViewById(R.id.tv_desc_etdrow);
             periode = itemView.findViewById(R.id.tv_periode);
+            id = itemView.findViewById(R.id.tv_id);
+            etdLayout=itemView.findViewById(R.id.etdLayout);
         }
     }
 }
