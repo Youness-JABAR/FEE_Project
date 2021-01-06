@@ -224,6 +224,15 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 
     }
+    Cursor readdatacandidat() {
+        String query = "SELECT * FROM " + STUDENT;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = null;
+        if (db != null) {
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
 
     int getEntrepriseIdFromOffer(int id_offre){
         SQLiteDatabase db = this.getReadableDatabase();
@@ -237,6 +246,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             return id;
         } else
             return -1;
+
+
+
 
 
     }
