@@ -52,6 +52,11 @@ public class OffreEtdAdapter extends RecyclerView.Adapter<OffreEtdAdapter.MyView
             public void onClick(View v) {
                 Intent intent=new Intent(context,DescriptionOffers.class);
                 intent.putExtra("idOffer", id.get(position).toString());
+                intent.putExtra("title", String.valueOf(titre.get(position)));
+                intent.putExtra("type", String.valueOf(type.get(position)));
+                intent.putExtra("remuneration", String.valueOf(remuneration.get(position)));
+                intent.putExtra("description", String.valueOf(description.get(position)));
+                intent.putExtra("periode", String.valueOf(periode.get(position)));
                 context.startActivity(intent);
             }
         });
