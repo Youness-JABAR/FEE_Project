@@ -2,19 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:id="@+id/etdLayout"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:id="@+id/etdLayout">
+    android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ECE6D6">
+            android:background="#FFFFFF">
 
             <TextView
                 android:id="@+id/tv_titre_etdrow"
@@ -23,7 +23,7 @@
                 android:fontFamily="sans-serif-black"
                 android:text="Titre "
                 android:textColor="#000000"
-                android:textSize="24sp"
+                android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -31,12 +31,12 @@
 
             <TextView
                 android:id="@+id/tv_desc_etdrow"
-                android:layout_width="389dp"
-                android:layout_height="wrap_content"
-                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="Description"
                 android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_titre_etdrow" />
 
@@ -44,57 +44,45 @@
                 android:id="@+id/tv_periode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="#000000"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:background="#FFFFFF"
                 android:text="Periode"
-                android:textColor="#FAFAFA"
-                android:textSize="8sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_desc_etdrow"
-                app:layout_constraintVertical_bias="0.0" />
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/tv_remuneration"
+                app:layout_constraintTop_toBottomOf="@+id/tv_desc_etdrow" />
 
             <TextView
                 android:id="@+id/tv_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="11dp"
-                android:background="#090909"
+                android:layout_marginTop="8dp"
                 android:text="Type"
-                android:textColor="#FFFFFF"
-                android:textSize="8sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/tv_periode"
-                app:layout_constraintHorizontal_bias="1.0"
+                android:textColor="#000000"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_desc_etdrow"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_desc_etdrow" />
 
             <TextView
                 android:id="@+id/tv_remuneration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="56dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="44dp"
-                android:background="#000000"
                 android:text="Remuneration"
-                android:textColor="#FAF8F8"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/tv_type"
-                app:layout_constraintTop_toBottomOf="@+id/tv_desc_etdrow"
-                app:layout_constraintVertical_bias="1.0" />
+                android:textColor="#000000"
+                app:layout_constraintStart_toEndOf="@+id/tv_type"
+                app:layout_constraintTop_toBottomOf="@+id/tv_desc_etdrow" />
 
             <TextView
                 android:id="@+id/tv_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:layout_marginBottom="8dp"
+                android:layout_width="13dp"
+                android:layout_height="15dp"
                 android:text="idd"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/tv_remuneration"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:textColor="#F8F8F8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

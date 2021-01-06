@@ -1,7 +1,10 @@
 package com.example.fee_project;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -20,7 +23,7 @@ public class UpdateOffre extends AppCompatActivity implements AdapterView.OnItem
     RadioButton radioButton;
 
     //Spinner type;
-    Button btn_update;
+    Button btn_update,btn_delete;
     RadioButton oui,non;
    RadioGroup rdgrp2;
     String title_up, description_up,id_up,periode_up,type_up,remuneration_up;
@@ -47,8 +50,14 @@ public class UpdateOffre extends AppCompatActivity implements AdapterView.OnItem
         non=findViewById(R.id.offre_btnnon2);
         rdgrp2=findViewById(R.id.roleRadioGroup2);
         btn_update=findViewById(R.id.offre_update);
+        btn_delete = findViewById(R.id.btn_delete);
         //appel de la méthode
         getAndSetIntentDataRec();
+        ActionBar ab = getSupportActionBar();
+        if (ab != null){
+            ab.setTitle(title_up);
+        }
+
         btn_update.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -64,7 +73,13 @@ public class UpdateOffre extends AppCompatActivity implements AdapterView.OnItem
 
             }
         });
+        btn_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                confirmDialog();
 
+            }
+        });
 
     }
     ////on recupere les donnees qu'on a fait passer par intent - putextra)
@@ -102,6 +117,28 @@ public class UpdateOffre extends AppCompatActivity implements AdapterView.OnItem
 
         }
         else{  Toast.makeText(this,"No data",Toast.LENGTH_SHORT).show();}
+    }
+    //Fonction pour afficher pop-up de suppression
+    void confirmDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Supprimer "+title_up);
+        builder.setMessage("Ëtes-vous sûre de vouloir supprimer cet offre :"+title_up+"?");
+        builder.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                DataBaseHelper db =new DataBaseHelper(UpdateOffre.this);
+                db.deleteOneData(id_up);
+                finish();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.create().show();
+
     }
 
     private int getnumtype(String type_up) {
