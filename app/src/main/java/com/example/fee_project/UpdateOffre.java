@@ -22,8 +22,9 @@ public class UpdateOffre extends AppCompatActivity implements AdapterView.OnItem
     Spinner type;
     RadioButton radioButton;
 
+
     //Spinner type;
-    Button btn_update,btn_delete;
+    Button btn_update,btn_delete,btn_see;
     RadioButton oui,non;
    RadioGroup rdgrp2;
     String title_up, description_up,id_up,periode_up,type_up,remuneration_up;
@@ -49,6 +50,7 @@ public class UpdateOffre extends AppCompatActivity implements AdapterView.OnItem
         oui=findViewById(R.id.offre_btnoui2);
         non=findViewById(R.id.offre_btnnon2);
         rdgrp2=findViewById(R.id.roleRadioGroup2);
+        btn_see=findViewById(R.id.btn_see);
         btn_update=findViewById(R.id.offre_update);
         btn_delete = findViewById(R.id.btn_delete);
         //appel de la méthode
@@ -78,6 +80,14 @@ public class UpdateOffre extends AppCompatActivity implements AdapterView.OnItem
             public void onClick(View v) {
                 confirmDialog();
 
+            }
+        });
+
+        btn_see.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(UpdateOffre.this,Liste_condidats.class);
+                startActivity(intent);
             }
         });
 
