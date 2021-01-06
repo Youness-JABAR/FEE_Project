@@ -17,7 +17,7 @@
         app:srcCompat="@drawable/logo" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
@@ -29,37 +29,39 @@
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
         android:text="Lettre de motivation :"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.298"
+        app:layout_constraintHorizontal_bias="0.273"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="250dp" />
+        app:layout_constraintTop_toBottomOf="@+id/test" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_cv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:text="Inserer CV"
         android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="@+id/btn_letter"
         app:layout_constraintTop_toBottomOf="@+id/imageView9" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_letter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         android:text="Inserer UN FICHIER"
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView13"
-        tools:layout_editor_absoluteY="233dp" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_cv" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_envoyer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="ENVOYER"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
