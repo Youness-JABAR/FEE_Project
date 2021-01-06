@@ -6,6 +6,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.provider.DocumentsContract;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -31,6 +32,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_TYPE = "TYPE";
     public static final String COLUMN_PERIODE = "PERIODE";
     public static final String COLUMN_RECRUITER_ID = "RECRUITER_ID";
+    public static final String DOCUMENTS = "DOCUMENTS";
+    public static final String COLUMN_CVNAME = "CvName";
+    public static final String COLUMN_LETTERNAME = "LetterName";
+    public static final String COLUMN_STUDENT_ID = "STUDENT_ID";
+    public static final String COLUMN_OFFER_ID = "OFFER_ID";
 
     private Context context;
 
@@ -50,16 +56,24 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL(createTableEntreprise);
         String createTableOffre = "CREATE TABLE " + OFFRE + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_TITRE + " TEXT, " + COLUMN_TYPE + " TEXT , " + COLUMN_REMUNERATION + " TEXT , " + COLUMN_DESCRIPTION_OFFRE + " TEXT , " + COLUMN_PERIODE + " TEXT ," + COLUMN_RECRUITER_ID + " INTEGER NOT NULL , FOREIGN KEY ( " + COLUMN_RECRUITER_ID + " ) REFERENCES RECRUITER (ID))";
         db.execSQL(createTableOffre);
-
-
+        String createTableDocuments = "CREATE TABLE " + DOCUMENTS + "  (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_CVNAME + " TEXT, " + COLUMN_LETTERNAME + " TEXT ," + COLUMN_STUDENT_ID + " INTEGER NOT NULL ," + COLUMN_OFFER_ID + " INTEGER NOT NULL , FOREIGN KEY ( " + COLUMN_STUDENT_ID + " ) REFERENCES STUDENT (ID) , FOREIGN KEY ( " + COLUMN_OFFER_ID + " ) REFERENCES OFFRE (ID))";
+        db.execSQL(createTableDocuments);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + OFFRE);
+    }
+    public boolean addDocuments(Documents documents) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_OFFER_ID, documents.getIdOffer());
+        cv.put(COLUMN_STUDENT_ID, documents.getIdStudent());
+        cv.put(COLUMN_CVNAME, documents.getCvName());
+        cv.put(COLUMN_LETTERNAME, documents.getLetterName());
+        long insert = db.insert(DOCUMENTS, null, cv);
+        return insert != -1;
 
     }
-
     public boolean addOffre(Offre offre) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -210,6 +224,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 
     }
+
+
 }
 
 

@@ -53,7 +53,7 @@ import com.google.firebase.storage.UploadTask;
             btn_letter=findViewById(R.id.btn_letter);
             btn_envoyer=findViewById(R.id.btn_envoyer);
             test=findViewById(R.id.test);
-            //btn_envoyer.setEnabled(false);
+            //reference in the storage in firebase
             storageReference= FirebaseStorage.getInstance().getReference();
 
             btn_cv.setOnClickListener(new View.OnClickListener() {
@@ -68,7 +68,6 @@ import com.google.firebase.storage.UploadTask;
                     selectPDF(114);
                 }
             });
-
             btn_envoyer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -78,9 +77,18 @@ import com.google.firebase.storage.UploadTask;
                     Toast.makeText(CvLetter.this, cvName, Toast.LENGTH_SHORT).show();
                     uploadPDFFileFirebase(cvUri,cvName);
                     uploadPDFFileFirebase(letterUri,letterName);
+
+                    DataBaseHelper db = new DataBaseHelper(CvLetter.this);
+                    Documents documents=new Documents(-1,idUser,Integer.parseInt(idOffer),cvName,letterName);
+                    Toast.makeText(CvLetter.this, documents.toString(), Toast.LENGTH_SHORT).show();
+                    if(db.addDocuments(documents)){
+                        Toast.makeText(CvLetter.this, "good job", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                        Toast.makeText(CvLetter.this, "bad job :|", Toast.LENGTH_SHORT).show();
                 }
             });
-    }
+        }
     }
 
         private void uploadPDFFileFirebase(Uri cvUri, String cvName) {
