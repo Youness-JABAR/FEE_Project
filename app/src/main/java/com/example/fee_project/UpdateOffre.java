@@ -121,7 +121,7 @@ public class UpdateOffre extends AppCompatActivity implements AdapterView.OnItem
     //Fonction pour afficher pop-up de suppression
     void confirmDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Supprimer "+title_up);
+        builder.setTitle("Supprimer "+title_up+" ?");
         builder.setMessage("Ëtes-vous sûre de vouloir supprimer cet offre :"+title_up+"?");
         builder.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
             @Override
