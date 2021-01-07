@@ -25,6 +25,7 @@ RecyclerView recyclerView;
     ArrayList<String> nom,prenom;
     DataBaseHelper db;
     CandidatAdapter candidatAdapter;
+    String id_up;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +34,8 @@ RecyclerView recyclerView;
         recyclerView = findViewById(R.id.recycleViewEcandidat);
         download=findViewById(R.id.download);
 
-
-
-
-
+        id_up=getIntent().getStringExtra("idOffer");
+        Toast.makeText(this,"yes"+id_up, Toast.LENGTH_SHORT).show();
 
         db = new DataBaseHelper(Liste_condidats.this);
         //initialiser les arraylist
@@ -58,12 +57,9 @@ RecyclerView recyclerView;
     }
 
     void displayData() {
-        //com.example.login is the preference file where we will store info
-        //Context.MODE_PRIVATE can be accessed only within the app
-        //SharedPreferences sharedpreferences = getSharedPreferences("com.example.login", Context.MODE_PRIVATE);
-        //int id = sharedpreferences.getInt("idUser", 0);
 
-        Cursor cursor = db.readdatacandidat();
+        Cursor cursor = db.readdatacandidat(Integer.parseInt(id_up));
+       // Cursor cursor = db.readdatacandidat(Integer.parseInt(id_up));
         if (cursor.getCount() == 0) {
             Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
         } else {

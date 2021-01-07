@@ -87,6 +87,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
 
+
     public boolean addDocuments(Documents documents) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -98,6 +99,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return insert != -1;
 
     }
+
     public boolean addOffre(Offre offre) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -249,8 +251,15 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     }
 
-    Cursor readdatacandidat() {
-        String query = "SELECT * FROM " + STUDENT;
+
+
+
+    Cursor readdatacandidat(int idOFFRE) {
+
+        //String query = "SELECT * FROM " + DOCUMENTS + " WHERE " + COLUMN_OFFER_ID + " = '" + idOFFRE;
+
+        String query = "SELECT * FROM " + STUDENT + " WHERE " + COLUMN_ID + " IN (SELECT " + COLUMN_STUDENT_ID + " FROM " + DOCUMENTS + " WHERE " + COLUMN_OFFER_ID + " = '" + idOFFRE + "')";
+
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = null;
         if (db != null) {
@@ -258,9 +267,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         }
         return cursor;
     }
-
-
-
 }
+
+
+
+
 
 

@@ -87,6 +87,8 @@ public class UpdateOffre extends AppCompatActivity implements AdapterView.OnItem
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(UpdateOffre.this,Liste_condidats.class);
+                intent.putExtra("idOffer", id_up);
+                Toast.makeText(UpdateOffre.this, "OUAAIIIS"+id_up, Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }
         });
