@@ -63,6 +63,30 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
+
+
+    int getEntrepriseIdFromOffer(int id_offre){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query="SELECT "+ COLUMN_ENTREPRISE_ID + " FROM "+ RECRUITER +" WHERE "+ COLUMN_ID + " IN (SELECT "+COLUMN_RECRUITER_ID+" FROM "+OFFRE+" WHERE "+COLUMN_ID+" = '"+id_offre+"')";
+        Cursor cursor = db.rawQuery(query, null);
+        int id = -1;
+        if (cursor.moveToFirst()) {
+            id = cursor.getInt(0);
+            cursor.close();
+            db.close();
+            return id;
+        } else
+            return -1;
+    }
+
+    Cursor getEntrepriseData(int id){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query ="SELECT * FROM " + ENTREPRISE + " WHERE " + COLUMN_ID + " = '"+ id + "'";
+        Cursor cursor = db.rawQuery(query, null);
+        return cursor;
+    }
+
+
     public boolean addDocuments(Documents documents) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -235,29 +259,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    int getEntrepriseIdFromOffer(int id_offre){
-        SQLiteDatabase db = this.getReadableDatabase();
-        String query="SELECT "+ COLUMN_ENTREPRISE_ID + " FROM "+ OFFRE +"WHERE "+ COLUMN_ID +" = '"+ id_offre +"'";
-        Cursor cursor = db.rawQuery(query, null);
-        int id = -1;
-        if (cursor.moveToFirst()) {
-            id = cursor.getInt(0);
-            cursor.close();
-            db.close();
-            return id;
-        } else
-            return -1;
-    }
 
-    Cursor getEntrepriseData(int id){
-        SQLiteDatabase db = this.getReadableDatabase();
-        String query ="SELECT * FROM " + ENTREPRISE + " WHERE " + COLUMN_ID + " = '"+ id + "'";
-        Cursor cursor = null;
-        if (db != null) {
-            cursor = db.rawQuery(query, null);
-        }
-        return cursor;
-    }
+
 }
 
 

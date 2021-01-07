@@ -23,9 +23,9 @@
         android:text='"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore'
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_entreprise" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_namEnt" />
 
     <TextView
         android:id="@+id/textView21"
@@ -37,7 +37,7 @@
         android:textColor="#040404"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/tv_desc_entreprise"
+        app:layout_constraintStart_toStartOf="@+id/tv_namEnt"
         app:layout_constraintTop_toBottomOf="@+id/tv_desc_offre" />
 
     <ImageView
@@ -191,5 +191,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_desc_entreprise" />
+
+    <TextView
+        android:id="@+id/tv_namEnt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Entreprise"
+        app:layout_constraintStart_toStartOf="@+id/tv_desc_entreprise"
+        app:layout_constraintTop_toBottomOf="@+id/img_entreprise" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
