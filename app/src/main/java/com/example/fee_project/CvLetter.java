@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -14,8 +13,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,8 +46,8 @@ import com.google.firebase.storage.UploadTask;
             int idUser=sharedpreferences.getInt("idUser",0);
             Toast.makeText(this, String.valueOf(idUser), Toast.LENGTH_SHORT).show();
 
-            btn_cv=findViewById(R.id.btn_cv);
-            btn_letter=findViewById(R.id.btn_letter);
+            btn_cv=findViewById(R.id.btn_view_cv);
+            btn_letter=findViewById(R.id.btn_viewletter);
             btn_envoyer=findViewById(R.id.btn_envoyer);
             test=findViewById(R.id.test);
             //reference in the storage in firebase

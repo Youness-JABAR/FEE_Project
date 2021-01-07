@@ -2,6 +2,7 @@ package com.example.fee_project;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,13 +18,16 @@ import java.util.ArrayList;
 public class CandidatAdapter extends RecyclerView.Adapter<CandidatAdapter.MyViewHolder> {
     private Context context;
     Activity activity;
-    ArrayList nom,prenom,link;
+    ArrayList idStudent,nom,prenom;
+    String idOffer;
 
-    public CandidatAdapter(Context context, Activity activity, ArrayList nom, ArrayList prenom) {
+    public CandidatAdapter(Context context, Activity activity, ArrayList nom, ArrayList prenom, String idOffer, ArrayList<String> idStudent) {
         this.context = context;
         this.activity = activity;
         this.nom = nom;
         this.prenom = prenom;
+        this.idOffer = idOffer;
+        this.idStudent = idStudent;
        // this.link = link;
     }
 
@@ -41,8 +45,18 @@ public class CandidatAdapter extends RecyclerView.Adapter<CandidatAdapter.MyView
     //public void onBindViewHolder(@NonNull CandidatAdapter.MyViewHolder holder, int position) {
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.nom.setText(String.valueOf(nom.get(position)));
-        holder.prenom.setText(String.valueOf(nom.get(position)));
+        holder.prenom.setText(String.valueOf(prenom.get(position)));
         //holder.link.setText(String.valueOf(link.get(position)));
+        holder.candidatLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(context,ViewDocumentsRec.class);
+                intent.putExtra("idOffer",idOffer);
+                intent.putExtra("idStudent",String.valueOf(idStudent.get(position)));
+                activity.startActivity(intent);
+            }
+        });
     }
 
     @Override

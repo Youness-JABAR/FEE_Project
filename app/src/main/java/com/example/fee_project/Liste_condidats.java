@@ -22,7 +22,7 @@ import java.util.List;
 public class Liste_condidats extends AppCompatActivity {
     Button download;
 RecyclerView recyclerView;
-    ArrayList<String> nom,prenom;
+    ArrayList<String> idStudent,nom,prenom;
     DataBaseHelper db;
     CandidatAdapter candidatAdapter;
     String id_up;
@@ -39,12 +39,13 @@ RecyclerView recyclerView;
 
         db = new DataBaseHelper(Liste_condidats.this);
         //initialiser les arraylist
+        idStudent=new ArrayList<>();
         nom=new ArrayList<>();
         prenom=new ArrayList<>();
 
         //link=new ArrayList<>();
         displayData();
-        candidatAdapter = new CandidatAdapter(Liste_condidats.this,Liste_condidats.this, nom,prenom);
+        candidatAdapter = new CandidatAdapter(Liste_condidats.this,Liste_condidats.this, nom,prenom,id_up,idStudent);
         recyclerView.setAdapter(candidatAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(Liste_condidats.this));
     }
@@ -64,6 +65,7 @@ RecyclerView recyclerView;
             Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
         } else {
             while (cursor.moveToNext()) {
+                idStudent.add(cursor.getString(0));
                 nom.add(cursor.getString(1));
                 prenom.add(cursor.getString(2));
                // link.add(cursor.getString(1));

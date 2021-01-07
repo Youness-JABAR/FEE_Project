@@ -11,6 +11,7 @@
         android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/candidatLayout"
             android:layout_width="415dp"
             android:layout_height="match_parent"
             android:background="#FFFFFF">
