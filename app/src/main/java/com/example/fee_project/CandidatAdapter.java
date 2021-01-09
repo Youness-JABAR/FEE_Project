@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.BreakIterator;
 import java.util.ArrayList;
-
+// cette page nous aide à adapter le format de l'item qui contient les informations des condidats
 public class CandidatAdapter extends RecyclerView.Adapter<CandidatAdapter.MyViewHolder> {
     private Context context;
     Activity activity;

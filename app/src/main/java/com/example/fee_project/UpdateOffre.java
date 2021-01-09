@@ -16,7 +16,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
-
+//cette page est affichée chez le recruteur quand il clique sur l'une des offres qu'il avait dejà publié dans recruiter offers , et conttient le bouton modifier , supprimer et voir le condidat
 public class UpdateOffre extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     EditText titre,description,periode;
     Spinner type;
@@ -33,6 +33,10 @@ public class UpdateOffre extends AppCompatActivity implements AdapterView.OnItem
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_offre);
+
+
+
+
 
         titre=findViewById(R.id.offre_titre2);
         type=findViewById(R.id.spinner2);

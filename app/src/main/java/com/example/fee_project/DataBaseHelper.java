@@ -267,6 +267,35 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         }
         return cursor;
     }
+
+    public String getEmailByID(String idStudent) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT " + COLUMN_EMAIL + " FROM " + STUDENT + " WHERE " + COLUMN_ID + " = '" + idStudent + "'";
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+           String  email=cursor.getString(0);
+            cursor.close();
+            db.close();
+            return email;
+        } else
+            return "";
+    }
+
+
+
+
+    public  String getUserName(String id , String user) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT " + COLUMN_NAME + " , " + COLUMN_FAMILY_NAME + " FROM " + user + " WHERE " + COLUMN_ID + " = '" + id + "'";
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            String fullname = cursor.getString(0) + cursor.getString(1);
+            cursor.close();
+            db.close();
+            return fullname;
+        } else
+            return "";
+    }
 }
 
 

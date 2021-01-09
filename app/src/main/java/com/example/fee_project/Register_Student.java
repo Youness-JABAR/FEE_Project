@@ -1,5 +1,6 @@
 package com.example.fee_project;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -17,6 +18,13 @@ public class Register_Student extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register__student);
+
+
+        ActionBar ab = getSupportActionBar();
+        if (ab != null){
+            ab.setTitle("");
+        }
+
         inset_nom=findViewById(R.id.inset_nom);
         inset_prenom=findViewById(R.id.inset_prenom);
         inset_email=findViewById(R.id.inset_email);

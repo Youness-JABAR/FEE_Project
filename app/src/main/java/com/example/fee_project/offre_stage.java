@@ -1,5 +1,6 @@
 package com.example.fee_project;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -15,6 +16,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
+// cette page est affichée chez le recruteur quand il clique sur le bouton ajouter , et le permet de saisir les informations necessaires pour décrire l'offre
 
 public class offre_stage extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     EditText titre,description,periode;
@@ -28,6 +30,12 @@ public class offre_stage extends AppCompatActivity implements AdapterView.OnItem
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offre_stage);
         ///retrouver les id
+        ActionBar ab = getSupportActionBar();
+        if (ab != null){
+            ab.setTitle("");
+        }
+
+
         titre=findViewById(R.id.offre_titre);
         description=findViewById(R.id.offre_description);
         /// les boutons oui et non dyal la rémunaratin

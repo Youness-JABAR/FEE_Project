@@ -1,6 +1,7 @@
 package com.example.fee_project;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,7 +19,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
-
+// cette page est affichée pour le recruteur et contient la liste des condidats qui ont postulé à ses offres
 public class Liste_condidats extends AppCompatActivity {
     Button download;
 RecyclerView recyclerView;
@@ -30,6 +31,12 @@ RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActionBar ab = getSupportActionBar();
+        if (ab != null){
+            ab.setTitle("Liste des candidats");
+        }
+
+
         setContentView(R.layout.activity_liste_condidats);
         recyclerView = findViewById(R.id.recycleViewEcandidat);
         download=findViewById(R.id.download);

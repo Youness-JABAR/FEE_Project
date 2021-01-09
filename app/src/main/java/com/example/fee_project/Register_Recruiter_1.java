@@ -2,6 +2,7 @@ package com.example.fee_project;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -31,6 +32,12 @@ public class Register_Recruiter_1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register__recruiter_1);
+
+        ActionBar ab = getSupportActionBar();
+        if (ab != null){
+            ab.setTitle("");
+        }
+
         insre_nom = findViewById(R.id.insre_nom);
         insre_prenom = findViewById(R.id.insre_prenom);
         insre_email = findViewById(R.id.insre_email);

@@ -14,8 +14,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.BreakIterator;
 import java.util.ArrayList;
+// cette page nous aide à adapter le format de l'item qui contient les informations des offres qui s'affichent au recruteur
 
 public class OffreAdapter extends RecyclerView.Adapter<OffreAdapter.MyViewHolder>{
+
 
     private Context context;
     Activity activity;

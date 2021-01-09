@@ -1,7 +1,9 @@
-    package com.example.fee_project;
+
+package com.example.fee_project;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -23,6 +25,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+// la page consacrée à l'étudiant pour qu'il insere le cv et la lettre
     public class CvLetter extends AppCompatActivity {
         Button btn_cv,btn_letter,btn_envoyer;
         TextView test;
@@ -35,20 +38,31 @@ import com.google.firebase.storage.UploadTask;
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_cv_letter);
 
+            SharedPreferences sharedpreferences = getSharedPreferences("com.example.login", Context.MODE_PRIVATE);
+            // The value will be default as empty 0
+            int idUser=sharedpreferences.getInt("idUser",0);
+            //Toast.makeText(this, String.valueOf(idUser), Toast.LENGTH_SHORT).show();
+
+
+            DataBaseHelper db= new DataBaseHelper(CvLetter.this);
+            String fullname=db.getUserName(String.valueOf(idUser),"STUDENT");
+// le nom et prénom de l'étudiant s'affiche dans le header de la page
+            ActionBar ab = getSupportActionBar();
+            if (ab != null){
+                ab.setTitle(fullname);
+            }
+
             String idOffer;
             if(getIntent().hasExtra("idOffer")) {
 
                 idOffer = getIntent().getStringExtra("idOffer");
                 Toast.makeText(this, "id " + idOffer, Toast.LENGTH_SHORT).show();
 
-            SharedPreferences sharedpreferences = getSharedPreferences("com.example.login", Context.MODE_PRIVATE);
-            // The value will be default as empty 0
-            int idUser=sharedpreferences.getInt("idUser",0);
-            Toast.makeText(this, String.valueOf(idUser), Toast.LENGTH_SHORT).show();
+
 
             btn_cv=findViewById(R.id.btn_view_cv);
             btn_letter=findViewById(R.id.btn_viewletter);
-            btn_envoyer=findViewById(R.id.btn_envoyer);
+            btn_envoyer=findViewById(R.id.btn_contacter);
             test=findViewById(R.id.test);
             //reference in the storage in firebase
             storageReference= FirebaseStorage.getInstance().getReference();

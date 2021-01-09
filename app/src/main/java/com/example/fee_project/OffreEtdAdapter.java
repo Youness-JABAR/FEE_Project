@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-
+// cette page nous aide à adapter le format de l'item qui contient les informations des offres et s'affcihe pour l'étudiant
 public class OffreEtdAdapter extends RecyclerView.Adapter<OffreEtdAdapter.MyViewHolder> {
 
 

@@ -1,5 +1,6 @@
 package com.example.fee_project;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -12,14 +13,22 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import java.util.zip.Inflater;
-
+//  une page acceuil descriptive de l'application s'affiche chez le recruteur
 public class Recruiter_accueil extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recruiter_accueil);
+
+        ActionBar ab = getSupportActionBar();
+        if (ab != null){
+            ab.setTitle("ACCEUIL");
+        }
+
+
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

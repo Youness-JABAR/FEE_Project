@@ -1,5 +1,6 @@
 package com.example.fee_project;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -19,6 +20,13 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        ActionBar ab = getSupportActionBar();
+        if (ab != null){
+            ab.setTitle("");
+        }
+
+
 
         //com.example.login is the preference file where we will store info
         //Context.MODE_PRIVATE can be accessed only within the app

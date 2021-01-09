@@ -1,5 +1,6 @@
 package com.example.fee_project;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -10,13 +11,19 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
-
+//  une page acceuil descriptive de l'application s'affiche chez l'étudiant
 public class Student_accueil extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_accueil);
+        ActionBar ab = getSupportActionBar();
+        if (ab != null){
+            ab.setTitle("Acceuil");
+        }
+
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

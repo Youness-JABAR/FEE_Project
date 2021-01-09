@@ -1,5 +1,6 @@
 package com.example.fee_project;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+// cette page est affichée chez l'étudiant et affiche l'ensemble des offres publiées par les autres recruteurs
 public class StudentOffers extends AppCompatActivity {
     RecyclerView recycleViewEtd;
     DataBaseHelper db;
@@ -22,6 +24,13 @@ public class StudentOffers extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_offers);
+
+        ActionBar ab = getSupportActionBar();
+        if (ab != null){
+            ab.setTitle("Les offres");
+        }
+
+
 
         recycleViewEtd = findViewById(R.id.recycleViewEtd);
 

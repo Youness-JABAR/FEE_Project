@@ -1,6 +1,7 @@
 package com.example.fee_project;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import com.google.firebase.storage.StorageReference;
 
 import java.io.File;
 import java.lang.reflect.Type;
+// cette page est affichée chez le recruteur pour voir le contenu des cv et des lettres evoyées de la part des étudiant
 
 public class ShowPdf extends AppCompatActivity {
     private PDFView pdfView;
@@ -24,6 +26,10 @@ public class ShowPdf extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_pdf);
+        ActionBar ab = getSupportActionBar();
+        if (ab != null){
+            ab.setTitle("FEE7");
+        }
         pdfView=(PDFView) findViewById(R.id.pdf);
         String idOffer=getIntent().getStringExtra("idOffer");
         String idStudent=getIntent().getStringExtra("idStudent");

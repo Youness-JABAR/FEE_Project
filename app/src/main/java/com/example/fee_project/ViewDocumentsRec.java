@@ -1,11 +1,13 @@
 package com.example.fee_project;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,18 +20,26 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.io.File;
+// cette page est affichée chez le recruteur pour voir le cv et la lettre de l'étudiant chosi
 
 public class ViewDocumentsRec extends AppCompatActivity {
-    Button btn_viewCv,btn_viewLetter;
+    Button btn_viewCv,btn_viewLetter,btn_send;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_documents_rec);
+        ActionBar ab = getSupportActionBar();
+        if (ab != null){
+            ab.setTitle("");
+        }
+
+
         String idOffer=getIntent().getStringExtra("idOffer");
         String idStudent=getIntent().getStringExtra("idStudent");
         Toast.makeText(this, "iffer"+idOffer+"std"+idStudent, Toast.LENGTH_SHORT).show();
         btn_viewCv=findViewById(R.id.btn_view_cv);
         btn_viewLetter=findViewById(R.id.btn_viewletter);
+        btn_send=findViewById(R.id.btn_contacter);
 
         btn_viewCv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +64,26 @@ public class ViewDocumentsRec extends AppCompatActivity {
 
             }
         });
+
+        btn_send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DataBaseHelper db = new DataBaseHelper(ViewDocumentsRec.this);
+                String email = db.getEmailByID(idStudent);
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
+                intent.setData(Uri.parse("mailto:"));
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(ViewDocumentsRec.this, "Y a pas d'applications qui supportent cette action", Toast.LENGTH_SHORT).show();
+                }
+
+
+
+            }
+        });
+
 
     }
 }

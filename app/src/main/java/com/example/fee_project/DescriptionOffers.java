@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -26,6 +28,7 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+// cette page est affichée pour l'étudiant afin de voir les informations de l'offre seléctionnée
 
 public class DescriptionOffers extends AppCompatActivity {
     Button btn_postuler;
@@ -44,7 +47,6 @@ public class DescriptionOffers extends AppCompatActivity {
         setContentView(R.layout.activity_description_offers);
 
 
-
         titre = findViewById(R.id.tv_title1);
         type = findViewById(R.id.tv_type1);
         periode = findViewById(R.id.tv_period1);
@@ -60,7 +62,7 @@ public class DescriptionOffers extends AppCompatActivity {
         getAndSetIntentDataRec();
         ActionBar ab = getSupportActionBar();
         if (ab != null){
-            ab.setTitle("Information de l'offre");
+            ab.setTitle("");
         }
 
 
