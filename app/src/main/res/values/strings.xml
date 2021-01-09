@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FEE_PROJECT</string>
+    <string name="app_name">FEE7</string>
     <string-array name="types">
         <item>OBSERVATION</item>
         <item>PFA</item>

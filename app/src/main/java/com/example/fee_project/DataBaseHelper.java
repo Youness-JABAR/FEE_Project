@@ -64,6 +64,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
 
+    public boolean checkStudentApply(String idOffer, String idStudent) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM " + DOCUMENTS + " WHERE " + COLUMN_STUDENT_ID + " = '" + idStudent + "' AND "+ COLUMN_OFFER_ID + " = '" + idOffer + "'";
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.getCount() > 0)
+            return true;
+        else return false;
+    }
 
     int getEntrepriseIdFromOffer(int id_offre){
         SQLiteDatabase db = this.getReadableDatabase();
@@ -296,6 +304,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         } else
             return "";
     }
+
+
 }
 
 

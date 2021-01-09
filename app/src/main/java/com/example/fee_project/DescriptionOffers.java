@@ -87,6 +87,15 @@ public class DescriptionOffers extends AppCompatActivity {
                 }
             });
         }
+
+        //FOR CHECK IF THE STUDENT HAS ALREADY APPLY TO AN OFFER
+
+        SharedPreferences sharedpreferences = getSharedPreferences("com.example.login", Context.MODE_PRIVATE);
+        // The value will be default as empty 0
+        int idUser=sharedpreferences.getInt("idUser",0);
+        if(db.checkStudentApply(idOffer,String.valueOf(idUser))){
+            btn_postuler.setEnabled(false);
+        }
     }
 
     private void getAndSetIntentDataRec() {
@@ -168,6 +177,10 @@ public class DescriptionOffers extends AppCompatActivity {
         }
     }
 
+
+
+
+//FOR ITEMS IN THE HEADER
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
