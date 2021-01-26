@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,6 +24,7 @@ public class Register_Student extends AppCompatActivity {
         if (ab != null){
             ab.setTitle("");
         }
+
         inset_nom=findViewById(R.id.inset_nom);
         inset_prenom=findViewById(R.id.inset_prenom);
         inset_email=findViewById(R.id.inset_email);
@@ -40,54 +40,40 @@ public class Register_Student extends AppCompatActivity {
                 String email=inset_email.getText().toString();
                 String pwd1=inset_password1.getText().toString();
                 String pwd2=inset_password2.getText().toString();
-
                 if (email.equals("")||nom.equals("")||prenom.equals("")||pwd1.equals("")){
                     Toast.makeText(Register_Student.this, "champs sont vides", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    if(!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-
-
-
-
-                        if ( pwd1.equals(pwd2) ){
-                            DataBaseHelper db = new DataBaseHelper(Register_Student.this);
-                            if(db.checkEmail(email,"STUDENT")){
-                                try {
-                                    studentModel=new StudentModel(-1,prenom,nom,email,pwd1);
-                                    Toast.makeText(Register_Student.this, studentModel.toString(), Toast.LENGTH_SHORT).show();
-
-                                    if (db.addStudent(studentModel)){
-                                        //validateEmailAdress(email);
-                                        Toast.makeText(Register_Student.this, "compte créer avec succès", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(Register_Student.this,Login.class);
-                                        startActivity(intent);
-                                    }
-
-                                    else
-                                        Toast.makeText(Register_Student.this, "Erreur lors de la creation de compte", Toast.LENGTH_SHORT).show();
+                    if ( pwd1.equals(pwd2) ){
+                        DataBaseHelper db = new DataBaseHelper(Register_Student.this);
+                        if(db.checkEmail(email,"STUDENT")){
+                            try {
+                                studentModel=new StudentModel(-1,prenom,nom,email,pwd1);
+                                Toast.makeText(Register_Student.this, studentModel.toString(), Toast.LENGTH_SHORT).show();
+                                if (db.addStudent(studentModel)){
+                                    Toast.makeText(Register_Student.this, "compte créer avec succès", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(Register_Student.this,Login.class);
+                                    startActivity(intent);
                                 }
-                                catch (Exception e){
+
+                                else
                                     Toast.makeText(Register_Student.this, "Erreur lors de la creation de compte", Toast.LENGTH_SHORT).show();
-                                }
                             }
-                            else
-                                Toast.makeText(Register_Student.this, "l'email existe déjà", Toast.LENGTH_SHORT).show();
-
-
+                            catch (Exception e){
+                                Toast.makeText(Register_Student.this, "Erreur lors de la creation de compte", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                        else {
-                            Toast.makeText(Register_Student.this, "Mots de passe non identiques!", Toast.LENGTH_SHORT).show();
-                        }
+                        else
+                            Toast.makeText(Register_Student.this, "l'email existe déjà", Toast.LENGTH_SHORT).show();
+                        
 
                     }
-                    else{ Toast.makeText(Register_Student.this, "La forme de l'email n'est pas bonne", Toast.LENGTH_SHORT).show();}
-
+                    else {
+                        Toast.makeText(Register_Student.this, "Mots de passe non identiques!", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
             }
-
         });
     }
-
 }
