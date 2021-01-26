@@ -10,7 +10,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DescriptionOffers">
+    tools:context=".DescriptionOffers"
+    android:background="@drawable/background2">
 
     <TextView
         android:id="@+id/tv_desc_entreprise"
@@ -39,17 +40,6 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tv_namEnt"
         app:layout_constraintTop_toBottomOf="@+id/tv_desc_offre" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="100dp"
-        android:layout_height="67dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
 
     <TextView
         android:id="@+id/textView18"
@@ -105,7 +95,7 @@
         android:id="@+id/tv_title1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="100dp"
         android:fontFamily="sans-serif-smallcaps"
         android:text="TITRE de l'offre"
         android:textColor="#000000"
@@ -113,7 +103,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView"

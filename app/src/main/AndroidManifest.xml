@@ -38,8 +38,8 @@
         <activity android:name=".Register_Recruiter_1" />
         <activity android:name=".Register_Student" />
         <activity android:name=".Inscription_choice" />
-        <activity android:name=".Login" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Login" android:theme="@style/Theme.FEE_PROJECT.NoActionBar"/>
+        <activity android:name=".MainActivity" android:theme="@style/Theme.FEE_PROJECT.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

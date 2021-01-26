@@ -4,25 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewDocumentsRec">
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="100dp"
-        android:layout_height="67dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+    tools:context=".ViewDocumentsRec"
+    android:background="@drawable/background2">
 
     <TextView
         android:id="@+id/test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
         android:text="CV :"
         app:layout_constraintStart_toStartOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+        tools:layout_editor_absoluteY="151dp" />
 
     <TextView
         android:id="@+id/textView13"
@@ -39,11 +30,10 @@
         android:id="@+id/btn_view_cv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
         android:text="voir "
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="@+id/btn_viewletter"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+        tools:layout_editor_absoluteY="143dp" />
 
     <Button
         android:id="@+id/btn_viewletter"
