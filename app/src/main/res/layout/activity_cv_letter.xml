@@ -6,57 +6,95 @@
     android:layout_height="match_parent"
     tools:context=".CvLetter"
     android:background="@drawable/background2">
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/backgroundcolor"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.441">
+
 
     <TextView
         android:id="@+id/test"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:text="CV :"
-        app:layout_constraintStart_toStartOf="@+id/textView13"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="100dp"
+
+        android:ems="10"
+        android:text="CV:"
+        android:textColor="#ffff"
+        android:textSize="23sp" />
+
 
     <TextView
         android:id="@+id/textView13"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
-        android:text="Lettre de motivation :"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.273"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/test" />
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="35dp"
+        android:ems="10"
+        android:text="Lettre de motivation:"
+        android:textColor="#ffff"
+        android:textSize="23sp" />
 
-    <Button
-        android:id="@+id/btn_view_cv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:text="Inserer CV"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="@+id/btn_viewletter"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btn_viewletter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="Inserer UN FICHIER"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/btn_view_cv" />
+        <Button
+            android:id="@+id/btn_view_cv"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="-95dp"
+            android:layout_marginBottom="64dp"
+            android:background="@drawable/backgroundcolor"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="inserer"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+
+            app:backgroundTint="@color/white" />
+
+
+        <Button
+            android:id="@+id/btn_viewletter"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="-50dp"
+            android:layout_marginBottom="64dp"
+            android:background="@drawable/background_button"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="INSERER"
+            android:textSize="14sp"
+            app:backgroundTint="@color/white"
+            android:textColor="@color/black"/>
+
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_contacter"
-        android:layout_width="wrap_content"
+        android:layout_width="185dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="108dp"
+        android:background="@drawable/backgroundcolor"
         android:text="ENVOYER"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:backgroundTint="@color/purple_200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13"
-        app:layout_constraintVertical_bias="0.301" />
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
