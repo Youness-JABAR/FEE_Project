@@ -23,6 +23,7 @@
         android:fontFamily="sans-serif-smallcaps"
         android:text='"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore'
         android:textColor="#000000"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +37,7 @@
         android:fontFamily="sans-serif-smallcaps"
         android:text="Informations sur l'entreprise :"
         android:textColor="#040404"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tv_namEnt"
         app:layout_constraintTop_toBottomOf="@+id/tv_desc_offre" />
@@ -49,7 +50,7 @@
         android:fontFamily="sans-serif-smallcaps"
         android:text="Remuneration : "
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView19"
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
@@ -58,11 +59,12 @@
         android:id="@+id/tv_remun1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="sans-serif-smallcaps"
         android:text="XXXX"
         android:textColor="#000000"
+        android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/textView18"
         app:layout_constraintTop_toBottomOf="@+id/tv_period1" />
 
@@ -74,7 +76,7 @@
         android:fontFamily="sans-serif-smallcaps"
         android:text="Periode : "
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView18"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -83,11 +85,12 @@
         android:id="@+id/tv_period1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="sans-serif-smallcaps"
         android:text="XXXX"
         android:textColor="#000000"
+        android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/textView17"
         app:layout_constraintTop_toBottomOf="@+id/tv_type1" />
 
@@ -113,7 +116,7 @@
         android:fontFamily="sans-serif-smallcaps"
         android:text="Type : "
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView17"
         app:layout_constraintTop_toBottomOf="@+id/tv_title1" />
@@ -127,6 +130,7 @@
         android:fontFamily="sans-serif-smallcaps"
         android:text="XXXX"
         android:textColor="#000000"
+        android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/tv_title1" />
 
@@ -138,7 +142,7 @@
         android:fontFamily="sans-serif-smallcaps"
         android:text="Description de l'offre :"
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tv_desc_offre"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
@@ -153,6 +157,7 @@
         android:fontFamily="sans-serif-smallcaps"
         android:text='"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore'
         android:textColor="#000000"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -160,8 +165,8 @@
 
     <ImageView
         android:id="@+id/img_entreprise"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="90dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -174,6 +179,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
+        android:background="@drawable/backgroundcolor"
         android:fontFamily="sans-serif-smallcaps"
         android:text="Postuler"
         app:cornerRadius="25dp"
@@ -187,7 +193,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Entreprise"
+        android:text="Entreprise:"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tv_desc_entreprise"
         app:layout_constraintTop_toBottomOf="@+id/img_entreprise" />
 </androidx.constraintlayout.widget.ConstraintLayout>

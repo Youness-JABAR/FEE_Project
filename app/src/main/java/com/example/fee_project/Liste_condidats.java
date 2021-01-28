@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 // cette page est affichée pour le recruteur et contient la liste des condidats qui ont postulé à ses offres
 public class Liste_condidats extends AppCompatActivity {
-    Button download;
+    //Button download;
 RecyclerView recyclerView;
     ArrayList<String> idStudent,nom,prenom;
     DataBaseHelper db;
@@ -43,7 +43,7 @@ RecyclerView recyclerView;
 
         setContentView(R.layout.activity_liste_condidats);
         recyclerView = findViewById(R.id.recycleViewEcandidat);
-        download=findViewById(R.id.download);
+        //download=findViewById(R.id.download);
 
         id_up=getIntent().getStringExtra("idOffer");
         Toast.makeText(this,"yes"+id_up, Toast.LENGTH_SHORT).show();

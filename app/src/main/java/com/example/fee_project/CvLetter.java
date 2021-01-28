@@ -144,7 +144,7 @@ import com.google.firebase.storage.UploadTask;
             intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
             try {
                 startActivityForResult(Intent.createChooser(intent, "Select Your .pdf File"), num);
-                test.setText("TEST  :");
+                test.setText("CV :");
 
             } catch (ActivityNotFoundException e) {
                 Toast.makeText(CvLetter.this, "Please Install a File Manager",Toast.LENGTH_SHORT).show();
